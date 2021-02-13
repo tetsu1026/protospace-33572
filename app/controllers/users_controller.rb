@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
 
   def show
@@ -23,6 +23,14 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+
+  def destroy
+    if @user.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
+  end
 
   end
 
