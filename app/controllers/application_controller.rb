@@ -8,6 +8,7 @@ before_action :configure_permitted_parameters, if: :devise_controller?
     devise_parameter_sanitizer.permit(:sign_up, keys: [:profile])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:occupation])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:position])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile, :occupation, :position])
   end
 end
 
